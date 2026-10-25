@@ -6,7 +6,7 @@ A beginner-friendly Excel practice project focused on answering common sales-ana
 
 ## Dataset
 
-The `sales-dataset.xlsx` workbook contains one sheet, `Raw_Sales_Data`, with 50 sales records and 10 raw columns:
+The `sales-dataset.xlsx` workbook contains one sheet, `Raw_Sales_Data`, with 50 sales records. The original 10 source columns are:
 
 - `Order_ID`
 - `Order_Date`
@@ -19,17 +19,17 @@ The `sales-dataset.xlsx` workbook contains one sheet, `Raw_Sales_Data`, with 50 
 - `Salesperson`
 - `Payment_Method`
 
-The dataset covers January–August 2026 and includes orders from Karachi, Lahore, and Islamabad; Electronics, Furniture, and Clothing products; four salespeople; and Card, Cash, and Bank Transfer payments.
+The workbook now also includes the calculated `Revenue` column and a `Total_Sales` summary formula. The dataset covers January–August 2026 and includes orders from Karachi, Lahore, and Islamabad; Electronics, Furniture, and Clothing products; four salespeople; and Card, Cash, and Bank Transfer payments.
 
-The dataset intentionally does not include calculated fields. Create `Revenue` using `Quantity × Unit_Price` as part of the first exercise. Add any other helper columns required by the questions during practice.
+`Revenue` is calculated for each order using `=H2*G2` and filled down the column. The total revenue is calculated with `=SUM(K2:K51)` and the total quantity sold with `=SUM(G2:G51)`. The current results are **5,189,800 total revenue** and **300 units sold**.
 
 ## Practice Questions
 
 ### Level 1 — Basic Excel Analysis
 
-1. **Calculate Total Revenue:** Calculate revenue for each order using `Quantity × Unit_Price`.
-2. **Calculate Total Sales:** Sum the revenue for all orders using `SUM()`.
-3. **Calculate Total Quantity Sold:** Sum all units sold using `SUM()`.
+1. **Calculate Total Revenue:** Calculate revenue for each order using `Quantity × Unit_Price`. **Completed** — the `Revenue` column uses `=H2*G2` and is filled down for all 50 orders.
+2. **Calculate Total Sales:** Sum the revenue for all orders using `SUM()`. **Completed** — `=SUM(K2:K51)` returns 5,189,800.
+3. **Calculate Total Quantity Sold:** Sum all units sold using `SUM()`. **Completed** — `=SUM(G2:G51)` returns 300.
 4. **Calculate Average Order Revenue:** Calculate average revenue per order using `AVERAGE()`.
 5. **Find the Highest Order Value:** Find the maximum order revenue using `MAX()`.
 
@@ -59,31 +59,32 @@ The dataset intentionally does not include calculated fields. Create `Revenue` u
 
 ## Skills Practiced
 
-| Excel Skill | Questions |
-|---|---|
-| Basic formulas and calculated columns | 1–7 |
-| `SUM()` | 2–3 |
-| `AVERAGE()` | 4 |
-| `MAX()` / `MIN()` | 5–6 |
-| `COUNT()` / `COUNTA()` | 7 |
-| `COUNTIF()` | 8, 12, 17 |
-| `SUMIF()` | 9, 10, 14, 16, 19 |
-| `AVERAGEIF()` | 18 |
-| `IF()` / nested `IF()` | 15 |
-| Filtering | 11, 13 |
-| Sorting | 16 |
-| Date analysis | 19 |
-| PivotTables and PivotCharts | 20 |
-| Dashboard design | 20 |
+| Excel Skill                           | Questions         |
+| ------------------------------------- | ----------------- |
+| Basic formulas and calculated columns | 1–7               |
+| `SUM()`                               | 2–3               |
+| `AVERAGE()`                           | 4                 |
+| `MAX()` / `MIN()`                     | 5–6               |
+| `COUNT()` / `COUNTA()`                | 7                 |
+| `COUNTIF()`                           | 8, 12, 17         |
+| `SUMIF()`                             | 9, 10, 14, 16, 19 |
+| `AVERAGEIF()`                         | 18                |
+| `IF()` / nested `IF()`                | 15                |
+| Filtering                             | 11, 13            |
+| Sorting                               | 16                |
+| Date analysis                         | 19                |
+| PivotTables and PivotCharts           | 20                |
+| Dashboard design                      | 20                |
 
 ## Recommended Progression
 
 Work through the exercises in order:
 
-1. Questions 1–7: Basic formulas
-2. Questions 8–10: Conditional aggregation
-3. Questions 11–15: Filtering and logical conditions
-4. Questions 16–19: Business-focused analysis
-5. Question 20: Build a mini sales dashboard
+1. Questions 1–3: Revenue and quantity calculations — completed
+2. Questions 4–7: Remaining basic formulas
+3. Questions 8–10: Conditional aggregation
+4. Questions 11–15: Filtering and logical conditions
+5. Questions 16–19: Business-focused analysis
+6. Question 20: Build a mini sales dashboard
 
 The goal is to translate business questions into calculations and insights, rather than simply memorizing Excel functions.
