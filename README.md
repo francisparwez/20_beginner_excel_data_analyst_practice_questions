@@ -19,19 +19,19 @@ The `sales-dataset.xlsx` workbook contains one sheet, `Raw_Sales_Data`, with 50 
 - `Salesperson`
 - `Payment_Method`
 
-The workbook now also includes the calculated `Revenue` column and a `Total_Sales` summary formula. The dataset covers January–August 2026 and includes orders from Karachi, Lahore, and Islamabad; Electronics, Furniture, and Clothing products; four salespeople; and Card, Cash, and Bank Transfer payments.
+The workbook includes a calculated `Revenue` column and an `Analysis` sheet with summary metrics. The dataset covers January–August 2026 and includes orders from Karachi, Lahore, and Islamabad; Electronics, Furniture, and Clothing products; four salespeople; and Card, Cash, and Bank Transfer payments.
 
-`Revenue` is calculated for each order using `=H2*G2` and filled down the column. The total revenue is calculated with `=SUM(K2:K51)` and the total quantity sold with `=SUM(G2:G51)`. The current results are **5,189,800 total revenue** and **300 units sold**.
+`Revenue` is calculated for each order using `=Raw_Sales_Data!H2*Raw_Sales_Data!G2` and filled down for all 50 orders. The `Analysis` sheet calculates total revenue with `=SUM(Analysis!A2:A51)`, total quantity sold with `=SUM(Raw_Sales_Data!G2:G51)`, average order revenue with `=AVERAGE(Analysis!A:A)`, and the highest order value with `=MAX(Analysis!A:A)`. The verified results are **5,189,800 total revenue**, **300 units sold**, **103,796 average order revenue**, and **324,000 highest order value**.
 
 ## Practice Questions
 
 ### Level 1 — Basic Excel Analysis
 
-1. **Calculate Total Revenue:** Calculate revenue for each order using `Quantity × Unit_Price`. **Completed** — the `Revenue` column uses `=H2*G2` and is filled down for all 50 orders.
-2. **Calculate Total Sales:** Sum the revenue for all orders using `SUM()`. **Completed** — `=SUM(K2:K51)` returns 5,189,800.
-3. **Calculate Total Quantity Sold:** Sum all units sold using `SUM()`. **Completed** — `=SUM(G2:G51)` returns 300.
-4. **Calculate Average Order Revenue:** Calculate average revenue per order using `AVERAGE()`.
-5. **Find the Highest Order Value:** Find the maximum order revenue using `MAX()`.
+1. **Calculate Total Revenue:** Calculate revenue for each order using `Quantity × Unit_Price`. **Completed** — the `Revenue` column uses `=Raw_Sales_Data!H2*Raw_Sales_Data!G2` and is filled down for all 50 orders.
+2. **Calculate Total Sales:** Sum the revenue for all orders using `SUM()`. **Completed** — `=SUM(Analysis!A2:A51)` returns 5,189,800.
+3. **Calculate Total Quantity Sold:** Sum all units sold using `SUM()`. **Completed** — `=SUM(Raw_Sales_Data!G2:G51)` returns 300.
+4. **Calculate Average Order Revenue:** Calculate average revenue per order using `AVERAGE()`. **Completed** — `=AVERAGE(Analysis!A:A)` returns 103,796.
+5. **Find the Highest Order Value:** Find the maximum order revenue using `MAX()`. **Completed** — `=MAX(Analysis!A:A)` returns 324,000.
 
 ### Level 2 — Basic Data Analysis
 
@@ -80,8 +80,8 @@ The workbook now also includes the calculated `Revenue` column and a `Total_Sale
 
 Work through the exercises in order:
 
-1. Questions 1–3: Revenue and quantity calculations — completed
-2. Questions 4–7: Remaining basic formulas
+1. Questions 1–5: Level 1 — Basic Excel Analysis — completed
+2. Questions 6–7: Remaining basic formulas
 3. Questions 8–10: Conditional aggregation
 4. Questions 11–15: Filtering and logical conditions
 5. Questions 16–19: Business-focused analysis
