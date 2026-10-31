@@ -21,7 +21,7 @@ The `sales-dataset.xlsx` workbook contains one sheet, `Raw_Sales_Data`, with 50 
 
 The workbook includes a calculated `Revenue` column and an `Analysis` sheet with summary metrics. The dataset covers January–August 2026 and includes orders from Karachi, Lahore, and Islamabad; Electronics, Furniture, and Clothing products; four salespeople; and Card, Cash, and Bank Transfer payments.
 
-`Revenue` is calculated for each order using `=Raw_Sales_Data!H2*Raw_Sales_Data!G2` and filled down for all 50 orders. The `Analysis` sheet calculates total revenue with `=SUM(Analysis!A2:A51)`, total quantity sold with `=SUM(Raw_Sales_Data!G2:G51)`, average order revenue with `=AVERAGE(Analysis!A:A)`, and the highest order value with `=MAX(Analysis!A:A)`. The verified results are **5,189,800 total revenue**, **300 units sold**, **103,796 average order revenue**, and **324,000 highest order value**.
+`Revenue` is calculated for each order using `=Raw_Sales_Data!H2*Raw_Sales_Data!G2` and filled down for all 50 orders. The `Analysis` sheet calculates total revenue with `=SUM(Analysis!A2:A51)`, total quantity sold with `=SUM(Raw_Sales_Data!G2:G51)`, average order revenue with `=AVERAGE(Analysis!A2:A51)`, the highest order value with `=MAX(Analysis!A2:A51)`, and the lowest order value with `=MIN(A2:A51)`. It also counts orders with `=COUNT(A2:A51)` and `=COUNTA(A2:A51)`, and counts orders by city with `=COUNTIF(Raw_Sales_Data!D:D,Analysis!C23)` (with the criteria reference adjusted for each city). The verified results are **5,189,800 total revenue**, **300 units sold**, **103,796 average order revenue**, **324,000 highest order value**, **25,000 lowest order value**, **50 total orders**, and city counts of **20 Karachi**, **17 Lahore**, and **13 Islamabad**.
 
 ## Practice Questions
 
@@ -35,9 +35,9 @@ The workbook includes a calculated `Revenue` column and an `Analysis` sheet with
 
 ### Level 2 — Basic Data Analysis
 
-6. **Find the Lowest Order Value:** Find the minimum order revenue using `MIN()`.
-7. **Count Total Orders:** Count the records using `COUNT()` and/or `COUNTA()`.
-8. **Count Orders by City:** Count orders from Karachi, Lahore, and Islamabad using `COUNTIF()`.
+6. **Find the Lowest Order Value:** Find the minimum order revenue using `MIN()`. **Completed** — `=MIN(A2:A51)` returns 25,000.
+7. **Count Total Orders:** Count the records using `COUNT()` and/or `COUNTA()`. **Completed** — `=COUNT(A2:A51)` and `=COUNTA(A2:A51)` both return 50.
+8. **Count Orders by City:** Count orders from Karachi, Lahore, and Islamabad using `COUNTIF()`. **Completed** — `=COUNTIF(Raw_Sales_Data!D:D,Analysis!C23)` (adjusting the criteria reference for each city) returns 20 for Karachi, 17 for Lahore, and 13 for Islamabad.
 9. **Calculate Revenue by City:** Sum revenue for each city using `SUMIF()`.
 10. **Calculate Revenue by Category:** Sum revenue for Electronics, Furniture, and Clothing using `SUMIF()`.
 
@@ -81,8 +81,8 @@ The workbook includes a calculated `Revenue` column and an `Analysis` sheet with
 Work through the exercises in order:
 
 1. Questions 1–5: Level 1 — Basic Excel Analysis — completed
-2. Questions 6–7: Remaining basic formulas
-3. Questions 8–10: Conditional aggregation
+2. Questions 6–8: Basic formulas and conditional counting — completed
+3. Questions 9–10: Conditional aggregation
 4. Questions 11–15: Filtering and logical conditions
 5. Questions 16–19: Business-focused analysis
 6. Question 20: Build a mini sales dashboard
