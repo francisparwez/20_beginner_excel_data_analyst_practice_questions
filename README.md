@@ -19,9 +19,9 @@ The `sales-dataset.xlsx` workbook contains one sheet, `Raw_Sales_Data`, with 50 
 - `Salesperson`
 - `Payment_Method`
 
-The workbook includes a calculated `Revenue` column and an `Analysis` sheet with summary metrics. The dataset covers January–August 2026 and includes orders from Karachi, Lahore, and Islamabad; Electronics, Furniture, and Clothing products; four salespeople; and Card, Cash, and Bank Transfer payments.
+The workbook includes a calculated `Revenue` column and an `Analysis` sheet with summary metrics and revenue breakdowns by city and category. The dataset covers January–August 2026 and includes orders from Karachi, Lahore, and Islamabad; Electronics, Furniture, and Clothing products; four salespeople; and Card, Cash, and Bank Transfer payments.
 
-`Revenue` is calculated for each order using `=Raw_Sales_Data!H2*Raw_Sales_Data!G2` and filled down for all 50 orders. The `Analysis` sheet calculates total revenue with `=SUM(Analysis!A2:A51)`, total quantity sold with `=SUM(Raw_Sales_Data!G2:G51)`, average order revenue with `=AVERAGE(Analysis!A2:A51)`, the highest order value with `=MAX(Analysis!A2:A51)`, and the lowest order value with `=MIN(A2:A51)`. It also counts orders with `=COUNT(A2:A51)` and `=COUNTA(A2:A51)`, and counts orders by city with `=COUNTIF(Raw_Sales_Data!D:D,Analysis!C23)` (with the criteria reference adjusted for each city). The verified results are **5,189,800 total revenue**, **300 units sold**, **103,796 average order revenue**, **324,000 highest order value**, **25,000 lowest order value**, **50 total orders**, and city counts of **20 Karachi**, **17 Lahore**, and **13 Islamabad**.
+`Revenue` is calculated for each order using `=Raw_Sales_Data!H2*Raw_Sales_Data!G2` and filled down for all 50 orders. The `Analysis` sheet calculates total revenue with `=SUM(Analysis!A2:A51)`, total quantity sold with `=SUM(Raw_Sales_Data!G2:G51)`, average order revenue with `=AVERAGE(Analysis!A:A)`, the highest order value with `=MAX(Analysis!A:A)`, and the lowest order value with `=MIN(A2:A51)`. It also counts orders with `=COUNT(A2:A51)` and `=COUNTA(A2:A51)`, and counts orders by city with `=COUNTIF(Raw_Sales_Data!D:D,Analysis!C23)` (adjusting the criteria reference for each city). Revenue by city is calculated with `=SUMIF(Raw_Sales_Data!D:D,C28,Analysis!A:A)` and the criteria reference is adjusted for each city. Revenue by category is calculated with `=SUMIF(Raw_Sales_Data!E$2:E$51,B33,Analysis!A$2:A$51)` and filled down for each category. The verified results are **5,189,800 total revenue**, **300 units sold**, **103,796 average order revenue**, **324,000 highest order value**, **25,000 lowest order value**, **50 total orders**, city counts of **20 Karachi**, **17 Lahore**, and **13 Islamabad**, city revenue of **2,174,500 Karachi**, **1,906,000 Lahore**, and **1,109,300 Islamabad**, and category revenue of **2,460,900 Electronics**, **2,039,000 Furniture**, and **689,900 Clothing**.
 
 ## Practice Questions
 
@@ -38,8 +38,8 @@ The workbook includes a calculated `Revenue` column and an `Analysis` sheet with
 6. **Find the Lowest Order Value:** Find the minimum order revenue using `MIN()`. **Completed** — `=MIN(A2:A51)` returns 25,000.
 7. **Count Total Orders:** Count the records using `COUNT()` and/or `COUNTA()`. **Completed** — `=COUNT(A2:A51)` and `=COUNTA(A2:A51)` both return 50.
 8. **Count Orders by City:** Count orders from Karachi, Lahore, and Islamabad using `COUNTIF()`. **Completed** — `=COUNTIF(Raw_Sales_Data!D:D,Analysis!C23)` (adjusting the criteria reference for each city) returns 20 for Karachi, 17 for Lahore, and 13 for Islamabad.
-9. **Calculate Revenue by City:** Sum revenue for each city using `SUMIF()`.
-10. **Calculate Revenue by Category:** Sum revenue for Electronics, Furniture, and Clothing using `SUMIF()`.
+9. **Calculate Revenue by City:** Sum revenue for each city using `SUMIF()`. **Completed** — `=SUMIF(Raw_Sales_Data!D:D,C28,Analysis!A:A)` (adjusting the criteria reference for each city) returns 2,174,500 for Karachi, 1,906,000 for Lahore, and 1,109,300 for Islamabad.
+10. **Calculate Revenue by Category:** Sum revenue for Electronics, Furniture, and Clothing using `SUMIF()`. **Completed** — `=SUMIF(Raw_Sales_Data!E$2:E$51,B33,Analysis!A$2:A$51)` (filled down for each category) returns 2,460,900 for Electronics, 2,039,000 for Furniture, and 689,900 for Clothing; the grand total is 5,189,800.
 
 ### Level 3 — Filtering and Conditional Analysis
 
@@ -81,10 +81,9 @@ The workbook includes a calculated `Revenue` column and an `Analysis` sheet with
 Work through the exercises in order:
 
 1. Questions 1–5: Level 1 — Basic Excel Analysis — completed
-2. Questions 6–8: Basic formulas and conditional counting — completed
-3. Questions 9–10: Conditional aggregation
-4. Questions 11–15: Filtering and logical conditions
-5. Questions 16–19: Business-focused analysis
-6. Question 20: Build a mini sales dashboard
+2. Questions 6–10: Basic formulas, conditional counting, and conditional aggregation — completed
+3. Questions 11–15: Filtering and logical conditions
+4. Questions 16–19: Business-focused analysis
+5. Question 20: Build a mini sales dashboard
 
 The goal is to translate business questions into calculations and insights, rather than simply memorizing Excel functions.
