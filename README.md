@@ -19,9 +19,9 @@ The `sales-dataset.xlsx` workbook contains two sheets: `Raw_Sales_Data`, with 50
 - `Salesperson`
 - `Payment_Method`
 
-The `Analysis` sheet includes a calculated `Revenue` column, summary metrics, revenue breakdowns by city and category, and filtered high-value order results. The dataset covers January–August 2026 and includes orders from Karachi, Lahore, and Islamabad; Electronics, Furniture, and Clothing products; four salespeople; and Card, Cash, and Bank Transfer payments.
+The `Analysis` sheet includes a calculated `Revenue` column, summary metrics, revenue breakdowns by city and category, filtered high-value order results, and filtered Electronics order results. The dataset covers January–August 2026 and includes orders from Karachi, Lahore, and Islamabad; Electronics, Furniture, and Clothing products; four salespeople; and Card, Cash, and Bank Transfer payments.
 
-`Revenue` is calculated for each order using `=Raw_Sales_Data!H2*Raw_Sales_Data!G2` and filled down for all 50 orders. The `Analysis` sheet calculates total revenue with `=SUM(Analysis!A2:A51)`, total quantity sold with `=SUM(Raw_Sales_Data!G2:G51)`, average order revenue with `=AVERAGE(Analysis!A:A)`, the highest order value with `=MAX(Analysis!A:A)`, and the lowest order value with `=MIN(A2:A51)`. It also counts orders with `=COUNT(A2:A51)` and `=COUNTA(A2:A51)`, and counts orders by city with `=COUNTIF(Raw_Sales_Data!D:D,Analysis!C23)` (adjusting the criteria reference for each city). Revenue by city is calculated with `=SUMIF(Raw_Sales_Data!D:D,C28,Analysis!A:A)` and the criteria reference is adjusted for each city. Revenue by category is calculated with `=SUMIF(Raw_Sales_Data!E$2:E$51,B33,Analysis!A$2:A$51)` and filled down for each category. The verified results are **5,189,800 total revenue**, **300 units sold**, **103,796 average order revenue**, **324,000 highest order value**, **25,000 lowest order value**, **50 total orders**, city counts of **20 Karachi**, **17 Lahore**, and **13 Islamabad**, city revenue of **2,174,500 Karachi**, **1,906,000 Lahore**, and **1,109,300 Islamabad**, category revenue of **2,460,900 Electronics**, **2,039,000 Furniture**, and **689,900 Clothing**, and **37 high-value orders** with revenue greater than 50,000.
+`Revenue` is calculated for each order using `=Raw_Sales_Data!H2*Raw_Sales_Data!G2` and filled down for all 50 orders. The `Analysis` sheet calculates total revenue with `=SUM(Analysis!A2:A51)`, total quantity sold with `=SUM(Raw_Sales_Data!G2:G51)`, average order revenue with `=AVERAGE(Analysis!A:A)`, the highest order value with `=MAX(Analysis!A:A)`, and the lowest order value with `=MIN(A2:A51)`. It also counts orders with `=COUNT(A2:A51)` and `=COUNTA(A2:A51)`, and counts orders by city with `=COUNTIF(Raw_Sales_Data!D:D,Analysis!C23)` (adjusting the criteria reference for each city). Revenue by city is calculated with `=SUMIF(Raw_Sales_Data!D:D,C28,Analysis!A:A)` and the criteria reference is adjusted for each city. Revenue by category is calculated with `=SUMIF(Raw_Sales_Data!E$2:E$51,B33,Analysis!A$2:A$51)` and filled down for each category. The verified results are **5,189,800 total revenue**, **300 units sold**, **103,796 average order revenue**, **324,000 highest order value**, **25,000 lowest order value**, **50 total orders**, city counts of **20 Karachi**, **17 Lahore**, and **13 Islamabad**, city revenue of **2,174,500 Karachi**, **1,906,000 Lahore**, and **1,109,300 Islamabad**, category revenue of **2,460,900 Electronics**, **2,039,000 Furniture**, and **689,900 Clothing**, **37 high-value orders** with revenue greater than 50,000, and **19 Electronics orders**.
 
 ## Practice Questions
 
@@ -45,7 +45,7 @@ The `Analysis` sheet includes a calculated `Revenue` column, summary metrics, re
 
 11. **Find High-Value Orders:** Filter orders with revenue greater than 50,000. **Completed** — `=FILTER(Raw_Sales_Data!A2:J51,Analysis!A2:A51>50000,"No orders found")` returns all 10 source fields for the 37 orders whose revenue exceeds 50,000. The formula is entered in `Analysis!D2` and spills across the results area.
 12. **Count High-Value Orders:** Count orders with revenue greater than 50,000 using `COUNTIF()`. **Completed** — `=COUNTIF(A2:A51,">50000")` returns 37.
-13. **Find Electronics Orders:** Filter the dataset to show only Electronics orders.
+13. **Find Electronics Orders:** Filter the dataset to show only Electronics orders. **Completed** — `=VSTACK(Raw_Sales_Data!A1:J1,FILTER(Raw_Sales_Data!A2:J51,Raw_Sales_Data!E2:E51="Electronics","No Electronics orders found"))` returns the headers and all 10 source fields for the 19 Electronics orders.
 14. **Calculate Electronics Revenue:** Sum revenue for Electronics using `SUMIF()`.
 15. **Identify Large Orders:** Add an `Order_Size` column: `Large` for revenue ≥ 100,000, `Medium` for revenue ≥ 50,000 but below 100,000, and `Small` for revenue below 50,000. Use `IF()` or nested `IF()`.
 
@@ -82,7 +82,7 @@ Work through the exercises in order:
 
 1. Questions 1–5: Level 1 — Basic Excel Analysis — completed
 2. Questions 6–10: Basic formulas, conditional counting, and conditional aggregation — completed
-3. Questions 11–15: Filtering and logical conditions — Questions 11–12 completed
+3. Questions 11–15: Filtering and logical conditions — Questions 11–13 completed
 4. Questions 16–19: Business-focused analysis
 5. Question 20: Build a mini sales dashboard
 
