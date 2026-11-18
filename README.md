@@ -6,7 +6,7 @@ A beginner-friendly Excel practice project focused on answering common sales-ana
 
 ## Dataset
 
-The `sales-dataset.xlsx` workbook contains three sheets: `Raw_Sales_Data`, with 50 sales records and the 10 original source columns plus a calculated `Revenue` column; `Analysis_01`, which contains summary metrics, revenue breakdowns, and filtered order results; and `Analysis_02`, which contains Electronics revenue and order-size classifications. The 10 original source columns are:
+The `sales-dataset.xlsx` workbook contains four sheets: `Raw_Sales_Data`, with 50 sales records and the 10 original source columns plus a calculated `Revenue` column; `Analysis_01`, which contains summary metrics, revenue breakdowns, and filtered order results; `Analysis_02`, which contains Electronics revenue and order-size classifications; and `Level_4_Practical_Data_Analysis`, which calculates revenue by salesperson. The 10 original source columns are:
 
 - `Order_ID`
 - `Order_Date`
@@ -19,9 +19,9 @@ The `sales-dataset.xlsx` workbook contains three sheets: `Raw_Sales_Data`, with 
 - `Salesperson`
 - `Payment_Method`
 
-The `Raw_Sales_Data` sheet includes the calculated `Revenue` column. `Analysis_01` contains summary metrics, revenue breakdowns by city and category, filtered high-value order results, and filtered Electronics order results. `Analysis_02` contains total Electronics revenue and an `Order_Size` classification for each order. The dataset covers January–August 2026 and includes orders from Karachi, Lahore, and Islamabad; Electronics, Furniture, and Clothing products; four salespeople; and Card, Cash, and Bank Transfer payments.
+The `Raw_Sales_Data` sheet includes the calculated `Revenue` column. `Analysis_01` contains summary metrics, revenue breakdowns by city and category, filtered high-value order results, and filtered Electronics order results. `Analysis_02` contains total Electronics revenue and an `Order_Size` classification for each order. `Level_4_Practical_Data_Analysis` lists the four distinct salespeople and calculates each person's total revenue. The dataset covers January–August 2026 and includes orders from Karachi, Lahore, and Islamabad; Electronics, Furniture, and Clothing products; four salespeople; and Card, Cash, and Bank Transfer payments.
 
-`Revenue` is calculated in `Raw_Sales_Data!K2` using `=Raw_Sales_Data!H2*Raw_Sales_Data!G2` and filled down for all 50 orders. `Analysis_01` calculates total revenue with `=SUM(Raw_Sales_Data!K2:K51)`, total quantity sold with `=SUM(Raw_Sales_Data!G2:G51)`, average order revenue with `=AVERAGE(Raw_Sales_Data!K:K)`, the highest order value with `=MAX(Raw_Sales_Data!K:K)`, and the lowest order value with `=MIN(Raw_Sales_Data!K2:K51)`. It also counts orders with `=COUNT(Raw_Sales_Data!K2:K51)` and `=COUNTA(Raw_Sales_Data!K2:K51)`, and counts orders by city with `=COUNTIF(Raw_Sales_Data!D:D,Analysis_01!B23)` (adjusting the criteria reference for each city). Revenue by city is calculated with `=SUMIF(Raw_Sales_Data!D:D,B28,Raw_Sales_Data!K:K)` and the criteria reference is adjusted for each city. Revenue by category is calculated with `=SUMIF(Raw_Sales_Data!E$2:E$51,A33,Raw_Sales_Data!K$2:K$51)` and filled down for each category. `Analysis_02` calculates Electronics revenue with `=SUMIF(Raw_Sales_Data!E2:E51,"Electronics",Raw_Sales_Data!K2:K51)` and classifies each order using nested `IF()` formulas. The verified results are **5,189,800 total revenue**, **300 units sold**, **103,796 average order revenue**, **324,000 highest order value**, **25,000 lowest order value**, **50 total orders**, city counts of **20 Karachi**, **17 Lahore**, and **13 Islamabad**, city revenue of **2,174,500 Karachi**, **1,906,000 Lahore**, and **1,109,300 Islamabad**, category revenue of **2,460,900 Electronics**, **2,039,000 Furniture**, and **689,900 Clothing**, **37 high-value orders** with revenue greater than 50,000, and **19 Electronics orders**. Electronics revenue is **2,460,900**.
+`Revenue` is calculated in `Raw_Sales_Data!K2` using `=Raw_Sales_Data!H2*Raw_Sales_Data!G2` and filled down for all 50 orders. `Analysis_01` calculates total revenue with `=SUM(Raw_Sales_Data!K2:K51)`, total quantity sold with `=SUM(Raw_Sales_Data!G2:G51)`, average order revenue with `=AVERAGE(Raw_Sales_Data!K:K)`, the highest order value with `=MAX(Raw_Sales_Data!K:K)`, and the lowest order value with `=MIN(Raw_Sales_Data!K2:K51)`. It also counts orders with `=COUNT(Raw_Sales_Data!K2:K51)` and `=COUNTA(Raw_Sales_Data!K2:K51)`, and counts orders by city with `=COUNTIF(Raw_Sales_Data!D:D,Analysis_01!B23)` (adjusting the criteria reference for each city). Revenue by city is calculated with `=SUMIF(Raw_Sales_Data!D:D,B28,Raw_Sales_Data!K:K)` and the criteria reference is adjusted for each city. Revenue by category is calculated with `=SUMIF(Raw_Sales_Data!E$2:E$51,A33,Raw_Sales_Data!K$2:K$51)` and filled down for each category. `Analysis_02` calculates Electronics revenue with `=SUMIF(Raw_Sales_Data!E2:E51,"Electronics",Raw_Sales_Data!K2:K51)` and classifies each order using nested `IF()` formulas. The verified results are **5,189,800 total revenue**, **300 units sold**, **103,796 average order revenue**, **324,000 highest order value**, **25,000 lowest order value**, **50 total orders**, city counts of **20 Karachi**, **17 Lahore**, and **13 Islamabad**, city revenue of **2,174,500 Karachi**, **1,906,000 Lahore**, and **1,109,300 Islamabad**, category revenue of **2,460,900 Electronics**, **2,039,000 Furniture**, and **689,900 Clothing**, **37 high-value orders** with revenue greater than 50,000, and **19 Electronics orders**. Electronics revenue is **2,460,900**. Salesperson revenue totals are **1,789,800 Ahmed**, **1,662,000 Bilal**, **1,056,500 Hamza**, and **681,500 Sana**; Ahmed generated the highest revenue.
 
 ## Practice Questions
 
@@ -51,7 +51,7 @@ The `Raw_Sales_Data` sheet includes the calculated `Revenue` column. `Analysis_0
 
 ### Level 4 — Practical Data Analyst Questions
 
-16. **Find the Best Salesperson:** Calculate revenue by salesperson using `SUMIF()`, then sort or compare totals to identify the highest.
+16. **Find the Best Salesperson:** Calculate revenue by salesperson using `SUMIF()`, then sort or compare totals to identify the highest. **Completed** — `=UNIQUE(Raw_Sales_Data!I2:I51)` in `Level_4_Practical_Data_Analysis!A2` returns the distinct salespeople, and `=SUMIF(Raw_Sales_Data!I2:I51,A2,Raw_Sales_Data!K2:K51)` in `B2` is filled down through `B5` to calculate each person's revenue. Comparing the totals identifies Ahmed as the top salesperson with 1,789,800.
 17. **Analyze Payment Methods:** Count Card, Cash, and Bank Transfer orders using `COUNTIF()` and identify the most frequently used method.
 18. **Calculate Average Revenue by Category:** Calculate average order revenue for each category using `AVERAGEIF()`.
 19. **Analyze Monthly Sales:** Extract the month from `Order_Date` and calculate revenue by month using date functions with `SUMIF()` or a PivotTable.
@@ -70,8 +70,8 @@ The `Raw_Sales_Data` sheet includes the calculated `Revenue` column. `Analysis_0
 | `SUMIF()`                             | 9, 10, 14, 16, 19 |
 | `AVERAGEIF()`                         | 18                |
 | `IF()` / nested `IF()`                | 15                |
+| `UNIQUE()`                            | 16                |
 | Filtering                             | 11, 13            |
-| Sorting                               | 16                |
 | Date analysis                         | 19                |
 | PivotTables and PivotCharts           | 20                |
 | Dashboard design                      | 20                |
@@ -83,7 +83,7 @@ Work through the exercises in order:
 1. Questions 1–5: Level 1 — Basic Excel Analysis — completed
 2. Questions 6–10: Basic formulas, conditional counting, and conditional aggregation — completed
 3. Questions 11–15: Filtering and logical conditions — completed
-4. Questions 16–19: Business-focused analysis
+4. Question 16: Find the Best Salesperson — completed; Questions 17–19: remaining business-focused analysis
 5. Question 20: Build a mini sales dashboard
 
 The goal is to translate business questions into calculations and insights, rather than simply memorizing Excel functions.
